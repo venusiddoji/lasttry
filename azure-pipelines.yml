@@ -1,6 +1,13 @@
 trigger:
 - master
-
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Pay-As-You-Go (0270519f-3d51-47ca-ae4c-bd1cac80a8af)'
+    appType: 'webApp'
+    WebAppName: 'lasttryapp'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    
 pool:
   vmImage: 'ubuntu-latest'
 
